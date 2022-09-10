@@ -2,9 +2,13 @@
 
 {% block body %}
 <div class="container">
-
     <div class="row">
-        <h3 class="mt-5 mb-5">Create Form</h3>
+        <h3 class="mt-5 mb-5">Update Form</h3>
+        {% for message in app.flashes('attention') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
         <div class="col-md-6 offset-md-3">
             {{form_start(form) }}
                 <div class="form-group">
@@ -16,7 +20,7 @@
                     {{ form_widget(form.content,{'attr':{'class':'form-control'}})}}
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-info mt-2 text-grey">Submit</button>
+                    <button class="btn btn-info mt-2 text-grey">Update</button>
                 </div>
             {{ form_end(form) }}
         </div>
